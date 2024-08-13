@@ -1,0 +1,190 @@
+@{
+    TempData.Keep();
+    string? currentPage = Convert.ToString(ViewContext.RouteData.Values["Page"])!;
+}
+
+<!-- Menu -->
+@* ! Do this simple *@
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+    @* ! Hide app brand if navbar-full *@
+    <div class='app-brand demo @((@ViewData["navbarFull"] != null && Convert.ToBoolean(@ViewData["navbarFull"])) ? "d-xl-none" : "")'>
+        <a asp-page="/Index" class="app-brand-link">
+            <span class="app-brand-logo demo">
+                @await Html.PartialAsync("../_Partials/_Macros")
+            </span>
+@*             <span class="app-brand-text demo menu-text fw-semibold ms-2">@TempData.Peek("appName")</span>
+ *@        </a>
+        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.47365 11.7183C8.11707 12.0749 8.11707 12.6531 8.47365 13.0097L12.071 16.607C12.4615 16.9975 12.4615 17.6305 12.071 18.021C11.6805 18.4115 11.0475 18.4115 10.657 18.021L5.83009 13.1941C5.37164 12.7356 5.37164 11.9924 5.83009 11.5339L10.657 6.707C11.0475 6.31653 11.6805 6.31653 12.071 6.707C12.4615 7.09747 12.4615 7.73053 12.071 8.121L8.47365 11.7183Z" fill-opacity="0.9" />
+                <path d="M14.3584 11.8336C14.0654 12.1266 14.0654 12.6014 14.3584 12.8944L18.071 16.607C18.4615 16.9975 18.4615 17.6305 18.071 18.021C17.6805 18.4115 17.0475 18.4115 16.657 18.021L11.6819 13.0459C11.3053 12.6693 11.3053 12.0587 11.6819 11.6821L16.657 6.707C17.0475 6.31653 17.6805 6.31653 18.071 6.707C18.4615 7.09747 18.4615 7.73053 18.071 8.121L14.3584 11.8336Z" fill-opacity="0.4" />
+            </svg>
+        </a>
+    </div>
+
+    <div class="menu-inner-shadow"></div>
+    <p class="text-end px-3 bg-white py-3">관리자 페이지<br />ADMIN</p>
+    <div class="d-flex justify-content-around">
+        <p class="fs-6 menu-item@(currentPage == "/Index" ? " active" : "")">
+            <a asp-page="/Index" class="menu-link">
+                로그인
+            </a>
+        </p> |
+        <p class="fs-6 menu-item@(currentPage == "/pwd" ? " active" : "")">
+            <a asp-page="/Index" class="menu-link">
+                비밀번호변경
+            </a>
+        </p>
+    </div>
+    @* ! Starter Kit menu-items *@
+    <ul class="menu-inner py-1">
+        <li class="px-4 py-2 m-0">●회원</li>
+        <li class='menu-item@(currentPage == "/Index" ? " active" : "")'>
+            <a asp-page="/Index" class="menu-link">
+                <i class="menu-icon tf-icons ri-home-smile-line"></i>
+                <div data-i18n="회원관리">회원관리</div>
+            </a>
+        </li>
+        <li class="px-4 py-2 m-0">●그룹</li>
+        <li class='menu-item@(currentPage == "/Page2" ? " active" : "")'>
+            <a asp-page="/Page2" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="그룹관리">그룹관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page3" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="상품마스터관리">상품마스터관리</div>
+            </a>
+        </li>
+        <li class="px-4 py-2 m-0">●상품</li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="상품관리">상품관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="특가상품관리">특가상품관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="메인노출관리">메인노출관리</div>
+            </a>
+        </li>
+        <li class="px-4 py-2 m-0">●회원사</li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="회원사 관리">회원사 관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="개별상품할인 관리">개별상품할인 관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="개별상품적립 관리">개별상품적립 관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="충전환불 관리">충전환불 관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="기프티콘발송 관리">기프티콘발송 관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="기프티콘발송 통계">기프티콘발송 통계</div>
+            </a>
+        </li>
+        <li class="px-4 py-2 m-0">●이벤트</li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="일반이벤트 관리">일반이벤트 관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="타사이벤트 관리">타사이벤트 관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="회원사이벤트 관리">회원사이벤트 관리</div>
+            </a>
+        </li>
+        <li class="px-4 py-2 m-0">●게시판</li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="공지사항/FAQ 관리">공지사항/FAQ 관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="1:1문의 관리">1:1문의 관리</div>
+            </a>
+        </li>
+        <li class="px-4 py-2 m-0">●ETC</li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="홍보메일 관리">홍보메일 관리</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="수신동의 업체명">수신동의 업체명</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="견적서 출력현황">견적서 출력현황</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="첨부파일">첨부파일</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="문자발송">문자발송</div>
+            </a>
+        </li>
+        <li class='menu-item@(currentPage == "/Page4" ? " active" : "")'>
+            <a asp-page="/Page3" class="menu-link">
+                <i class="menu-icon tf-icons ri-file-3-line"></i>
+                <div data-i18n="로그인이력/계정상태">로그인이력/계정상태</div>
+            </a>
+        </li>
+    </ul>
+
+</aside>
+<!-- / Menu -->

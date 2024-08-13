@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <rect id="checkBox_off" width="20" height="20" fill="#fff"/>
+  <path id="checkBox_off_-_윤곽선" data-name="checkBox_off - 윤곽선" d="M1,1V19H19V1H1M0,0H20V20H0Z" fill="#aaa"/>
+</svg>
